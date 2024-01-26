@@ -1,0 +1,33 @@
+import html
+#El módulo html se va a usar para darle formato a las preguntas, ya que no lee bien las comillas,
+#las comas, u otros signos. Por lo tanto se va a usar para darle formato
+class QuizBrain:
+
+    def __init__(self, q_list):
+        self.question_number = 0
+        self.score = 0
+        self.question_list = q_list
+        self.current_question = None
+
+    def still_has_questions(self):
+        return self.question_number < len(self.question_list)
+
+    def reset_questions(self):
+        self.question_number = 0
+        self.score = 0
+        #return self.question_number
+    def next_question(self):
+        #print(self.question_number)
+        self.current_question = self.question_list[self.question_number]
+        self.question_number += 1
+        q_text = html.unescape(self.current_question.text) #HTML character entities - es para
+        # darle formato o formatear correctamente
+        return f"Q.{self.question_number}: {q_text} (True/False): "
+
+    def check_answer(self, user_answer):
+        correct_answer = self.current_question.answer
+        if user_answer.lower() == correct_answer.lower():
+            self.score += 1
+            return True
+        else:
+            return False
