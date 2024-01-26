@@ -1,6 +1,5 @@
 import html
-#El módulo html se va a usar para darle formato a las preguntas, ya que no lee bien las comillas,
-#las comas, u otros signos. Por lo tanto se va a usar para darle formato
+
 class QuizBrain:
 
     def __init__(self, q_list):

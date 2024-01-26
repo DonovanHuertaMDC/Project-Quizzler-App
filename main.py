@@ -10,20 +10,8 @@ for question in question_data:
     new_question = Question(question_text, question_answer)
     question_bank.append(new_question)
 
-
 quiz = QuizBrain(question_bank)
 quiz_ui = QuizInterface(quiz)
-
-#while quiz.still_has_questions():
-    #quiz.next_question()       Se supone que tkinter funciona teniendo el
-                                # bucle sin fin de "mainloop()" y este es
-                                # un poco como un while loop interminable,
-                                # está constantemente comprobando si necesita
-                                # actualizar algo en la interfaz de usuario gráfico
-                                # o si el usuario a interactuado con ella de
-                                # alguna manera. Así que se confundirá si se tiene
-                                #otro while loop cerca de él. Se comenta si queremos
-                                #que el GUI funcione
 
 print("You've completed the quiz")
 print(f"Your final score was: {quiz.score}/{quiz.question_number}")
